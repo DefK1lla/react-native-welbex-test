@@ -1,26 +1,15 @@
-import { useEffect, useState } from 'react'
-
 import { StatusBar } from 'expo-status-bar'
-import { Button, StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 
-import i18n from './i18n'
+import './i18n.config'
 
+import { LocaleToggler } from './features/LocaleToggler/LocaleToggler'
+import { Test } from './features/Test'
 export default function App() {
-  const [locale, setLocale] = useState<string>(i18n.locale)
-
-  useEffect(() => {
-    i18n.locale = locale
-  }, [locale])
-
   return (
     <View style={styles.container}>
-      <Text>{i18n.t('hello_world')}</Text>
-      <Button
-        onPress={() =>
-          setLocale(prevState => (prevState === 'ru' ? 'en' : 'ru'))
-        }
-        title={i18n.locale}
-      />
+      <Test />
+      <LocaleToggler />
 
       <StatusBar style='auto' />
     </View>
