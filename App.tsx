@@ -1,26 +1,17 @@
-import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, View } from 'react-native'
-
 import './i18n.config'
 
-import { LocaleToggler } from './features/LocaleToggler/LocaleToggler'
-import { Test } from './features/Test'
+import { StatusBar, View } from 'react-native'
+
+import { TransportTable } from './components/TransportTable/TransportTable'
+
+import transports from './shared/mock/transport.json'
+import { Transport } from './shared/types/transport'
+
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Test />
-      <LocaleToggler />
-
-      <StatusBar style='auto' />
+    <View>
+      <TransportTable transports={transports as Transport[]} />
+      <StatusBar />
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})

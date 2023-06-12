@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "type": "passenger",
+    "driver": {
+      "name": "First Driver",
+      "phone": "+79850872575"
+    }
+  },
+  {
+    "id": 2,
+    "type": "freight",
+    "driver": {
+      "name": "Second Driver",
+      "phone": "+79850872575"
+    }
+  },
+  {
+    "id": 3,
+    "type": "freight",
+    "driver": {
+      "name": "Third Driver",
+      "phone": "+79850872575"
+    }
+  },
+  {
+    "id": 4,
+    "type": "special",
+    "driver": {
+      "name": "Fourth Driver",
+      "phone": "+79850872575"
+    }
+  },
+  {
+    "id": 5,
+    "type": "special",
+    "driver": {
+      "name": "Fifth Driver",
+      "phone": "+79850872575"
+    }
+  },
+  {
+    "id": 6,
+    "type": "passenger",
+    "driver": {
+      "name": "Sixth Driver",
+      "phone": "+79850872575"
+    }
+  },
+  {
+    "id": 7,
+    "type": "passenger",
+    "driver": {
+      "name": "Seventh Driver",
+      "phone": "+79850872575"
+    }
+  },
+  {
+    "id": 8,
+    "type": "freight",
+    "driver": {
+      "name": "Eighth Driver",
+      "phone": "+79850872575"
+    }
+  },
+  {
+    "id": 9,
+    "type": "freight",
+    "driver": {
+      "name": "Ninth Driver",
+      "phone": "+79850872575"
+    }
+  },
+  {
+    "id": 10,
+    "type": "passenger",
+    "driver": {
+      "name": "Tenth Driver",
+      "phone": "+79850872575"
+    }
+  }
+]
