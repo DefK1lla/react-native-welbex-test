@@ -1,3 +1,15 @@
 {
-  "hello_world": "Open up App.tsx to start working on your app!"
+  "hello_world": "Open up App.tsx to start working on your app!",
+  "home_screen": {
+    "tabs": {
+      "list": "List",
+      "map": "Map"
+    }
+  },
+  "words": {
+    "id": "id",
+    "name": "name",
+    "phone": "phone",
+    "type": "type"
+  }
 }

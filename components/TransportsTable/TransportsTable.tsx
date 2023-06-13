@@ -15,10 +15,12 @@ const tableHead = ['id', 'name', 'phone', 'type']
 
 interface TransportsProps {
   transports: Transport[]
+  getHeaderLabel: (title: string) => string
 }
 
 export const TransportsTable: FC<TransportsProps> = ({
   transports,
+  getHeaderLabel,
 }) => {
   return (
     <ScrollView horizontal style={styles.wrapper}>
@@ -33,7 +35,7 @@ export const TransportsTable: FC<TransportsProps> = ({
                 styles.headerCell,
               ]}
             >
-              {t.toUpperCase()}
+              {getHeaderLabel(t).toUpperCase()}
             </Text>
           ))}
         </View>
@@ -74,6 +76,7 @@ const styles = StyleSheet.create({
   headerCell: {
     color: colors.white,
     textAlign: 'center',
+    paddingBottom: 0,
   },
   row: {
     flex: 1,

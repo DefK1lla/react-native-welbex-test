@@ -9,19 +9,31 @@ import colors from '../../shared/styles/colors'
 import { FC } from 'react'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import { RootStackParams } from '../../navigation'
+import { useTranslation } from 'react-i18next'
 
 type Props = NativeStackScreenProps<RootStackParams, 'home'>
 
 export const HomeScreen: FC<Props> = () => {
+  const { t } = useTranslation()
+
   const tabsContent = [
     {
-      header: <Text style={styles.tabBtn}>List</Text>,
+      header: (
+        <Text style={styles.tabBtn}>
+          {t('home_screen.tabs.list')}
+        </Text>
+      ),
       body: (
-        <TransportsTable transports={transports as Transport[]} />
+        <TransportsTable
+          getHeaderLabel={title => t(`words.${title}`)}
+          transports={transports as Transport[]}
+        />
       ),
     },
     {
-      header: <Text style={styles.tabBtn}>Map</Text>,
+      header: (
+        <Text style={styles.tabBtn}>{t('home_screen.tabs.map')}</Text>
+      ),
       body: <TransportsMap transports={transports as Transport[]} />,
     },
   ]
