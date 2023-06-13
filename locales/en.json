@@ -6,10 +6,16 @@
       "map": "Map"
     }
   },
+  "transport_screen": {
+    "title": "Transport info"
+  },
   "words": {
     "id": "id",
     "name": "name",
     "phone": "phone",
-    "type": "type"
+    "type": "type",
+    "error": "Error",
+    "call": "Call",
+    "write": "Write"
   }
 }

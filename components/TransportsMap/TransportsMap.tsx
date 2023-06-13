@@ -13,7 +13,7 @@ import getIcon from './helpers/getIcon'
 import colors from '../../shared/styles/colors'
 
 interface TransportsMapProps {
-  transports: Transport[]
+  transports: Transport[] | Transport
   onMarkerPress?: (id: number) => void
 }
 
@@ -21,27 +21,41 @@ export const TransportsMap: FC<TransportsMapProps> = ({
   transports,
   onMarkerPress,
 }) => {
+  const isArray = Array.isArray(transports)
   return (
     <View style={styles.container}>
       <MapView
         provider={PROVIDER_GOOGLE}
         style={styles.map}
         region={{
-          latitude: 55.755864,
-          longitude: 37.617698,
+          latitude: isArray
+            ? 55.755864
+            : transports.coordinates.latitude,
+          longitude: isArray
+            ? 37.617698
+            : transports.coordinates.longitude,
           latitudeDelta: 1,
           longitudeDelta: 1,
         }}
       >
-        {transports.map((t, i) => (
+        {isArray ? (
+          transports.map((t, i) => (
+            <Marker
+              key={t.id}
+              tracksViewChanges={false}
+              coordinate={t.coordinates}
+              onPress={() => onMarkerPress?.(t.id)}
+              image={getIcon(t.type)}
+            />
+          ))
+        ) : (
           <Marker
-            key={t.id}
+            key={transports.id}
             tracksViewChanges={false}
-            coordinate={t.coordinates}
-            onPress={() => onMarkerPress?.(t.id)}
-            image={getIcon(t.type)}
+            coordinate={transports.coordinates}
+            image={getIcon(transports.type)}
           />
-        ))}
+        )}
       </MapView>
     </View>
   )
