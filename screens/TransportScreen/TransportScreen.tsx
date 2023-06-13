@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from 'react'
-import { View, Text, StyleSheet, Button } from 'react-native'
+import { View, Text, StyleSheet, Button, Linking } from 'react-native'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
 
 import { RootStackParams } from '../../navigation'
@@ -65,8 +65,22 @@ export const TransportScreen: FC<Props> = ({ route, navigation }) => {
       </View>
 
       <View style={styles.actions}>
-        <Button title={t('words.call')} />
-        <Button title={t('words.write')} />
+        <Button
+          title={t('words.call')}
+          onPress={() =>
+            Linking.openURL('tel:' + transport.driver.phone)
+          }
+        />
+        <Button
+          title={t('words.write')}
+          onPress={() =>
+            Linking.openURL(
+              `whatsapp://send?text=${t(
+                'transport_screen.message_text'
+              )}&phone=${transport.driver.phone}`
+            )
+          }
+        />
       </View>
 
       <TransportsMap transports={[transport]} />

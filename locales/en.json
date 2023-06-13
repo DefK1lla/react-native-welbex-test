@@ -7,7 +7,8 @@
     }
   },
   "transport_screen": {
-    "title": "Transport info"
+    "title": "Transport info",
+    "message_text": "Good afternoon, please tell me what order number you currently have in work."
   },
   "words": {
     "id": "id",
