@@ -1,13 +1,17 @@
 import { ImageURISource } from 'react-native/types'
 import { TransportType } from '../../../shared/types/transport'
 
-export default function (type: TransportType) {
+const passenger = require('../icons/passenger.png'),
+  freight = require('../icons/freight.png'),
+  spec = require('../icons/spec.png')
+
+export default function (type: TransportType): ImageURISource {
   switch (type) {
     case 'passenger':
-      return require('../icons/passenger.png')
+      return passenger
     case 'freight':
-      return require('../icons/freight.png')
+      return freight
     case 'special':
-      return require('../icons/spec.png')
+      return spec
   }
 }

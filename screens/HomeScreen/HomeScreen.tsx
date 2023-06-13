@@ -13,8 +13,12 @@ import { useTranslation } from 'react-i18next'
 
 type Props = NativeStackScreenProps<RootStackParams, 'home'>
 
-export const HomeScreen: FC<Props> = () => {
+export const HomeScreen: FC<Props> = ({ navigation }) => {
   const { t } = useTranslation()
+
+  const onTransportPress = (id: number) => {
+    navigation.navigate('transport')
+  }
 
   const tabsContent = [
     {
@@ -25,6 +29,7 @@ export const HomeScreen: FC<Props> = () => {
       ),
       body: (
         <TransportsTable
+          onRowPress={onTransportPress}
           getHeaderLabel={title => t(`words.${title}`)}
           transports={transports as Transport[]}
         />
@@ -34,7 +39,12 @@ export const HomeScreen: FC<Props> = () => {
       header: (
         <Text style={styles.tabBtn}>{t('home_screen.tabs.map')}</Text>
       ),
-      body: <TransportsMap transports={transports as Transport[]} />,
+      body: (
+        <TransportsMap
+          onMarkerPress={onTransportPress}
+          transports={transports as Transport[]}
+        />
+      ),
     },
   ]
   return <Tabs items={tabsContent} />

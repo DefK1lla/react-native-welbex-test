@@ -16,11 +16,13 @@ const tableHead = ['id', 'name', 'phone', 'type']
 interface TransportsProps {
   transports: Transport[]
   getHeaderLabel: (title: string) => string
+  onRowPress: (id: number) => void
 }
 
 export const TransportsTable: FC<TransportsProps> = ({
   transports,
   getHeaderLabel,
+  onRowPress,
 }) => {
   return (
     <ScrollView horizontal style={styles.wrapper}>
@@ -42,7 +44,11 @@ export const TransportsTable: FC<TransportsProps> = ({
         <FlatList
           data={transports}
           renderItem={data => (
-            <TouchableOpacity style={styles.row} activeOpacity={0.4}>
+            <TouchableOpacity
+              style={styles.row}
+              activeOpacity={0.4}
+              onPress={() => onRowPress(data.item.id)}
+            >
               <Text style={[styles.id, styles.cell]}>
                 #{data.item.id}
               </Text>
