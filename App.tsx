@@ -2,12 +2,10 @@ import './i18n.config'
 
 import { StatusBar, StyleSheet, View } from 'react-native'
 
-import { TransportsTable } from './components/TransportsTable/TransportsTable'
-
 import transports from './shared/mock/transport.json'
 import { Transport } from './shared/types/transport'
 import colors from './shared/styles/colors'
-import { TransportsMap } from './components/TransportsMap/TransportsMap'
+import { TransportsMap } from './components'
 
 export default function App() {
   return (

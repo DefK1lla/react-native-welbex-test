@@ -24,9 +24,10 @@ export const TransportsMap: FC<TransportsMapProps> = ({
           longitudeDelta: 1,
         }}
       >
-        {transports.map(t => (
+        {transports.map((t, i) => (
           <Marker
-            key={t.coordinates.latitude + t.coordinates.longitude}
+            key={i}
+            tracksViewChanges={false}
             coordinate={t.coordinates}
             onPress={() => console.log(t.id)}
           >
