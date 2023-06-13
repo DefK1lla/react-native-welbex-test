@@ -5,6 +5,10 @@
     "driver": {
       "name": "First Driver",
       "phone": "+79850872575"
+    },
+    "coordinates": {
+      "latitude": 55.713747,
+      "longitude": 37.505749
     }
   },
   {
@@ -13,6 +17,10 @@
     "driver": {
       "name": "Second Driver",
       "phone": "+79850872575"
+    },
+    "coordinates": {
+      "latitude": 55.716503,
+      "longitude": 37.911001
     }
   },
   {
@@ -21,6 +29,10 @@
     "driver": {
       "name": "Third Driver",
       "phone": "+79850872575"
+    },
+    "coordinates": {
+      "latitude": 55.87466,
+      "longitude": 37.586311
     }
   },
   {
@@ -29,6 +41,10 @@
     "driver": {
       "name": "Fourth Driver",
       "phone": "+79850872575"
+    },
+    "coordinates": {
+      "latitude": 55.635111,
+      "longitude": 37.613165
     }
   },
   {
@@ -37,6 +53,10 @@
     "driver": {
       "name": "Fifth Driver",
       "phone": "+79850872575"
+    },
+    "coordinates": {
+      "latitude": 55.822471,
+      "longitude": 37.774289
     }
   },
   {
@@ -45,6 +65,10 @@
     "driver": {
       "name": "Sixth Driver",
       "phone": "+79850872575"
+    },
+    "coordinates": {
+      "latitude": 55.675139,
+      "longitude": 37.784055
     }
   },
   {
@@ -53,6 +77,10 @@
     "driver": {
       "name": "Seventh Driver",
       "phone": "+79850872575"
+    },
+    "coordinates": {
+      "latitude": 55.999354,
+      "longitude": 38.123392
     }
   },
   {
@@ -61,6 +89,10 @@
     "driver": {
       "name": "Eighth Driver",
       "phone": "+79850872575"
+    },
+    "coordinates": {
+      "latitude": 55.509241,
+      "longitude": 37.610724
     }
   },
   {
@@ -69,6 +101,10 @@
     "driver": {
       "name": "Ninth Driver",
       "phone": "+79850872575"
+    },
+    "coordinates": {
+      "latitude": 55.933632,
+      "longitude": 37.098055
     }
   },
   {
@@ -77,6 +113,10 @@
     "driver": {
       "name": "Tenth Driver",
       "phone": "+79850872575"
+    },
+    "coordinates": {
+      "latitude": 55.877405,
+      "longitude": 37.466688
     }
   }
 ]

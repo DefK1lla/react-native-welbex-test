@@ -13,11 +13,11 @@ import colors from '../../shared/styles/colors'
 
 const tableHead = ['id', 'name', 'phone', 'type']
 
-interface TransportProps {
+interface TransportsProps {
   transports: Transport[]
 }
 
-export const TransportTable: FC<TransportProps> = ({
+export const TransportsTable: FC<TransportsProps> = ({
   transports,
 }) => {
   return (
