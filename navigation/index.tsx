@@ -10,6 +10,7 @@ export type RootStackParams = {
   home: undefined
   transport: {
     id: number
+    name: string
   }
 }
 

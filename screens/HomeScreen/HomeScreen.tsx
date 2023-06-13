@@ -41,8 +41,11 @@ export const HomeScreen: FC<Props> = ({ navigation }) => {
 
   const { t } = useTranslation()
 
-  const onTransportPress = (id: number) => {
-    navigation.navigate('transport', { id })
+  const onTransportPress = (t: Transport) => {
+    navigation.navigate('transport', {
+      id: t.id,
+      name: t.driver.name,
+    })
   }
 
   const tabsContent = [

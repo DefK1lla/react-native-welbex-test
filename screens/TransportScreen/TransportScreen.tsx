@@ -10,8 +10,8 @@ import { useTranslation } from 'react-i18next'
 
 type Props = NativeStackScreenProps<RootStackParams, 'transport'>
 
-export const TransportScreen: FC<Props> = ({ route }) => {
-  const id = route.params.id
+export const TransportScreen: FC<Props> = ({ route, navigation }) => {
+  const { id, name } = route.params
 
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [transport, setTransport] = useState<Transport>()
@@ -20,6 +20,10 @@ export const TransportScreen: FC<Props> = ({ route }) => {
 
   useEffect(() => {
     setIsLoading(true)
+
+    navigation.setOptions({
+      title: name,
+    })
 
     const t = setTimeout(
       () =>
@@ -30,7 +34,7 @@ export const TransportScreen: FC<Props> = ({ route }) => {
     )
 
     return () => clearTimeout(t)
-  }, [id])
+  }, [id, name])
 
   if (isLoading) return <Loading />
 

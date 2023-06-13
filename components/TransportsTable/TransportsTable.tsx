@@ -16,7 +16,7 @@ const tableHead = ['id', 'name', 'phone', 'type']
 interface TransportsProps {
   transports: Transport[]
   getHeaderLabel: (title: string) => string
-  onRowPress: (id: number) => void
+  onRowPress: (transport: Transport) => void
 }
 
 export const TransportsTable: FC<TransportsProps> = ({
@@ -47,7 +47,7 @@ export const TransportsTable: FC<TransportsProps> = ({
             <TouchableOpacity
               style={styles.row}
               activeOpacity={0.4}
-              onPress={() => onRowPress(data.item.id)}
+              onPress={() => onRowPress(data.item)}
             >
               <Text style={[styles.id, styles.cell]}>
                 #{data.item.id}

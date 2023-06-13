@@ -14,7 +14,7 @@ import colors from '../../shared/styles/colors'
 
 interface TransportsMapProps {
   transports: Transport[] | Transport
-  onMarkerPress?: (id: number) => void
+  onMarkerPress?: (transport: Transport) => void
 }
 
 export const TransportsMap: FC<TransportsMapProps> = ({
@@ -44,7 +44,7 @@ export const TransportsMap: FC<TransportsMapProps> = ({
               key={t.id}
               tracksViewChanges={false}
               coordinate={t.coordinates}
-              onPress={() => onMarkerPress?.(t.id)}
+              onPress={() => onMarkerPress?.(t)}
               image={getIcon(t.type)}
             />
           ))
