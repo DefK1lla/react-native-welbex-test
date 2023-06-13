@@ -1,23 +1,48 @@
-import { StyleSheet, Text } from 'react-native'
+import {
+  StyleSheet,
+  Text,
+  ActivityIndicator,
+  View,
+} from 'react-native'
 
-import transports from '../../shared/mock/transport.json'
 import { Transport } from '../../shared/types/transport'
-import { TransportsMap, TransportsTable } from '../../components'
+import {
+  Loading,
+  TransportsMap,
+  TransportsTable,
+} from '../../components'
 import { Tabs } from '../../features'
 
 import colors from '../../shared/styles/colors'
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import { RootStackParams } from '../../navigation'
 import { useTranslation } from 'react-i18next'
+import { getTransportsList } from '../../shared/api/transports'
 
 type Props = NativeStackScreenProps<RootStackParams, 'home'>
 
 export const HomeScreen: FC<Props> = ({ navigation }) => {
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [transports, setTransports] = useState<Transport[]>()
+
+  useEffect(() => {
+    setIsLoading(true)
+    const t = setTimeout(
+      () =>
+        getTransportsList()
+          .then(setTransports)
+          .finally(() => setIsLoading(false)),
+      300
+    )
+
+    return () => clearTimeout(t)
+  }, [])
+
   const { t } = useTranslation()
 
   const onTransportPress = (id: number) => {
-    navigation.navigate('transport')
+    navigation.navigate('transport', { id })
   }
 
   const tabsContent = [
@@ -47,6 +72,9 @@ export const HomeScreen: FC<Props> = ({ navigation }) => {
       ),
     },
   ]
+
+  if (isLoading) return <Loading />
+
   return <Tabs items={tabsContent} />
 }
 

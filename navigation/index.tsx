@@ -7,8 +7,10 @@ import { TransportScreen } from '../screens/TransportScreen/TransportScreen'
 import colors from '../shared/styles/colors'
 
 export type RootStackParams = {
-  home: any
-  transport: any
+  home: undefined
+  transport: {
+    id: number
+  }
 }
 
 const RootStack = createNativeStackNavigator<RootStackParams>()
