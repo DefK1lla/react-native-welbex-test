@@ -1,9 +1,10 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text } from 'react-native'
 import { RootStackParams } from '../../navigation'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import { FC } from 'react'
 import { useTranslation } from 'react-i18next'
 import { LocaleToggler } from '../../features'
+import styles from './SettingsScreen.style'
 
 type Props = NativeStackScreenProps<RootStackParams, 'settings'>
 
@@ -17,16 +18,3 @@ export const SettingsScreen: FC<Props> = () => {
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    height: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  title: {
-    fontSize: 18,
-    textAlign: 'center',
-    marginBottom: 10,
-  },
-})

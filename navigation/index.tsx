@@ -1,4 +1,4 @@
-import { Text, StyleSheet } from 'react-native'
+import { Text } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
@@ -11,8 +11,9 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import AppIcon from '../assets/icons/apps-outline.svg'
 import SettingsIcon from '../assets/icons/settings-outline.svg'
 
-import colors from '../shared/styles/colors'
 import { useTranslation } from 'react-i18next'
+import styles from './Navigation.style'
+import colors from '../shared/styles/colors'
 
 export type RootStackParams = {
   settings: undefined
@@ -95,23 +96,5 @@ const Navigation = () => {
     </NavigationContainer>
   )
 }
-
-const styles = StyleSheet.create({
-  header: {
-    backgroundColor: colors.blue,
-  },
-  title: {
-    color: colors.white,
-  },
-  tabLabel: {
-    fontSize: 11,
-    color: colors.blue,
-    fontWeight: '500',
-  },
-  tabIcon: {
-    width: 30,
-    height: 30,
-  },
-})
 
 export default Navigation

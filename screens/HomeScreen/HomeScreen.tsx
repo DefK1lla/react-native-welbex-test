@@ -1,9 +1,4 @@
-import {
-  StyleSheet,
-  Text,
-  ActivityIndicator,
-  View,
-} from 'react-native'
+import { SafeAreaView, Text } from 'react-native'
 
 import { Transport } from '../../shared/types/transport'
 import {
@@ -13,12 +8,13 @@ import {
 } from '../../components'
 import { Tabs } from '../../features'
 
-import colors from '../../shared/styles/colors'
 import { FC, useEffect, useState } from 'react'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import { RootStackParams } from '../../navigation'
 import { useTranslation } from 'react-i18next'
 import { getTransportsList } from '../../shared/api/transports'
+
+import styles from './HomeScreen.style'
 
 type Props = NativeStackScreenProps<RootStackParams, 'home'>
 
@@ -78,17 +74,9 @@ export const HomeScreen: FC<Props> = ({ navigation }) => {
 
   if (isLoading) return <Loading />
 
-  return <Tabs items={tabsContent} />
+  return (
+    <SafeAreaView>
+      <Tabs items={tabsContent} />
+    </SafeAreaView>
+  )
 }
-
-const styles = StyleSheet.create({
-  tabBtn: {
-    width: 100,
-    padding: 15,
-    borderWidth: 2,
-    borderRadius: 25,
-    borderColor: colors.blue,
-    textAlign: 'center',
-    color: colors.blue,
-  },
-})

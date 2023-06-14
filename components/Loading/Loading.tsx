@@ -1,5 +1,7 @@
-import { View, ActivityIndicator, StyleSheet } from 'react-native'
+import { View, ActivityIndicator } from 'react-native'
 import colors from '../../shared/styles/colors'
+
+import styles from './Loading.style'
 
 export const Loading = () => {
   return (
@@ -8,12 +10,3 @@ export const Loading = () => {
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  loading: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-})

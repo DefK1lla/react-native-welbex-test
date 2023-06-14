@@ -10,7 +10,8 @@ import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps'
 import { Transport } from '../../shared/types/transport'
 import { FC } from 'react'
 import getIcon from './helpers/getIcon'
-import colors from '../../shared/styles/colors'
+
+import styles from './TransportsMap.style'
 
 interface TransportsMapProps {
   transports: Transport[] | Transport
@@ -58,24 +59,3 @@ export const TransportsMap: FC<TransportsMapProps> = ({
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    height: Dimensions.get('window').height,
-  },
-  map: {
-    height: '100%',
-    width: Dimensions.get('window').width,
-  },
-  marker: {
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  text: {
-    padding: 5,
-    marginTop: 5,
-    borderRadius: 5,
-    backgroundColor: colors.white,
-    textAlign: 'center',
-  },
-})

@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from 'react'
-import { View, Text, StyleSheet, Button, Linking } from 'react-native'
+import { View, Text, Button, Linking } from 'react-native'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
 
 import { RootStackParams } from '../../navigation'
@@ -7,6 +7,8 @@ import { getTransport } from '../../shared/api/transports'
 import { Transport } from '../../shared/types/transport'
 import { Loading, TransportsMap } from '../../components'
 import { useTranslation } from 'react-i18next'
+
+import styles from './TransportScreen.style'
 
 type Props = NativeStackScreenProps<RootStackParams, 'transport'>
 
@@ -87,25 +89,3 @@ export const TransportScreen: FC<Props> = ({ route, navigation }) => {
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  header: {
-    padding: 15,
-  },
-  actions: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginBottom: 15,
-  },
-  title: {
-    textAlign: 'center',
-    fontSize: 23,
-    marginBottom: 20,
-  },
-  row: {
-    flexDirection: 'row',
-  },
-  label: {
-    fontWeight: '700',
-  },
-})

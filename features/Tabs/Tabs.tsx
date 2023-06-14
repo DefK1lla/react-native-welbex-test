@@ -2,11 +2,11 @@ import { ReactNode, FC, useState } from 'react'
 import {
   ScrollView,
   StyleProp,
-  StyleSheet,
   TouchableOpacity,
   View,
   ViewStyle,
 } from 'react-native'
+import styles from './Tabs.style'
 
 interface TabItem {
   header: ReactNode
@@ -48,12 +48,3 @@ export const Tabs: FC<TabsProps> = ({
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  header: {
-    width: '100%',
-    paddingTop: 15,
-    paddingBottom: 15,
-    justifyContent: 'space-around',
-  },
-})
