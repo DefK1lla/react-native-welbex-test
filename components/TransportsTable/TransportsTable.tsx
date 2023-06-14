@@ -82,7 +82,11 @@ const styles = StyleSheet.create({
   headerCell: {
     color: colors.white,
     textAlign: 'center',
+    paddingTop: 15,
     paddingBottom: 0,
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   row: {
     flex: 1,

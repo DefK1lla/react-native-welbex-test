@@ -10,6 +10,14 @@
     "title": "Transport info",
     "message_text": "Good afternoon, please tell me what order number you currently have in work."
   },
+  "settings_screen": {
+    "header_title": "Settings",
+    "title": "Click to change language"
+  },
+  "bottom_tabs": {
+    "app": "App",
+    "settings": "Settings"
+  },
   "words": {
     "id": "id",
     "name": "name",

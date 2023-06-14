@@ -22,21 +22,19 @@ export const TransportsMap: FC<TransportsMapProps> = ({
   onMarkerPress,
 }) => {
   const isArray = Array.isArray(transports)
+  const region = {
+    latitude: isArray ? 55.755864 : transports.coordinates.latitude,
+    longitude: isArray ? 37.617698 : transports.coordinates.longitude,
+    latitudeDelta: 1,
+    longitudeDelta: 1,
+  }
+
   return (
     <View style={styles.container}>
       <MapView
         provider={PROVIDER_GOOGLE}
         style={styles.map}
-        region={{
-          latitude: isArray
-            ? 55.755864
-            : transports.coordinates.latitude,
-          longitude: isArray
-            ? 37.617698
-            : transports.coordinates.longitude,
-          latitudeDelta: 1,
-          longitudeDelta: 1,
-        }}
+        region={region}
       >
         {isArray ? (
           transports.map((t, i) => (

@@ -83,7 +83,7 @@ export const TransportScreen: FC<Props> = ({ route, navigation }) => {
         />
       </View>
 
-      <TransportsMap transports={[transport]} />
+      <TransportsMap transports={transport} />
     </View>
   )
 }
