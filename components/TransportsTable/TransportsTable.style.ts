@@ -42,16 +42,13 @@ const styles = StyleSheet.create({
     borderRightWidth: 1,
   },
   id: {
-    width: 50,
+    width: 60,
   },
   name: {
-    width: 150,
-  },
-  phone: {
-    width: 150,
+    width: 175,
   },
   type: {
-    width: 100,
+    width: 125,
   },
 })
 

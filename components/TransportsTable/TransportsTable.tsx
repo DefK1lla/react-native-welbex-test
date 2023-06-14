@@ -10,7 +10,7 @@ import {
 import { Transport } from '../../shared/types/transport'
 import styles from './TransportsTable.style'
 
-const tableHead = ['id', 'name', 'phone', 'type']
+const tableHead = ['id', 'name', 'type']
 
 interface TransportsProps {
   transports: Transport[]
@@ -45,6 +45,7 @@ export const TransportsTable: FC<TransportsProps> = ({
           contentContainerStyle={{
             paddingBottom: transports.length * 6,
           }}
+          key={'id'}
           renderItem={data => (
             <TouchableOpacity
               style={styles.row}
@@ -56,9 +57,6 @@ export const TransportsTable: FC<TransportsProps> = ({
               </Text>
               <Text style={[styles.name, styles.cell]}>
                 {data.item.driver.name}
-              </Text>
-              <Text style={[styles.phone, styles.cell]}>
-                {data.item.driver.phone}
               </Text>
               <Text style={[styles.type, styles.cell]}>
                 {data.item.type}
