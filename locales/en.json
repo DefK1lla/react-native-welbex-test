@@ -19,6 +19,7 @@
     "settings": "Settings"
   },
   "words": {
+    "all": "all",
     "id": "id",
     "name": "name",
     "phone": "phone",

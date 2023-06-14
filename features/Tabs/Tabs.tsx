@@ -18,6 +18,7 @@ interface TabsProps {
   items: TabItem[]
   headerStyles?: StyleProp<ViewStyle>
   bodyStyles?: StyleProp<ViewStyle>
+  onChange?: (tab: number) => void
 }
 
 export const Tabs: FC<TabsProps> = ({
@@ -25,6 +26,7 @@ export const Tabs: FC<TabsProps> = ({
   items,
   headerStyles,
   bodyStyles,
+  onChange,
 }) => {
   const [active, setActive] = useState<number>(defaultActive)
 
@@ -38,7 +40,10 @@ export const Tabs: FC<TabsProps> = ({
           <TouchableOpacity
             key={idx}
             activeOpacity={0.6}
-            onPress={() => setActive(idx)}
+            onPress={() => {
+              setActive(idx)
+              onChange?.(idx)
+            }}
           >
             {i.header}
           </TouchableOpacity>

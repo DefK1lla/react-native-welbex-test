@@ -42,6 +42,9 @@ export const TransportsTable: FC<TransportsProps> = ({
         </View>
         <FlatList
           data={transports}
+          contentContainerStyle={{
+            paddingBottom: transports.length * 6,
+          }}
           renderItem={data => (
             <TouchableOpacity
               style={styles.row}

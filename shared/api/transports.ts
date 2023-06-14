@@ -1,8 +1,11 @@
 import transports from '../mock/transport.json'
-import { Transport } from '../types/transport'
+import { Transport, TransportType } from '../types/transport'
 
-export async function getTransportsList() {
-  return transports as Transport[]
+export async function getTransportsList(
+  type?: TransportType | 'all'
+) {
+  if (!type || type === 'all') return transports as Transport[]
+  return transports.filter(t => t.type === type) as Transport[]
 }
 
 export async function getTransport(id: number) {

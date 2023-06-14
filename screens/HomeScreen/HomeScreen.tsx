@@ -1,6 +1,11 @@
 import { SafeAreaView, Text } from 'react-native'
 
-import { Transport } from '../../shared/types/transport'
+import { Picker } from '@react-native-picker/picker'
+
+import {
+  Transport,
+  TransportType,
+} from '../../shared/types/transport'
 import {
   Loading,
   TransportsMap,
@@ -18,24 +23,35 @@ import styles from './HomeScreen.style'
 
 type Props = NativeStackScreenProps<RootStackParams, 'home'>
 
+const types: Array<TransportType | 'all'> = [
+  'all',
+  'passenger',
+  'freight',
+  'special',
+]
+
 export const HomeScreen: FC<Props> = ({ navigation }) => {
+  const [selected, setSelected] = useState<TransportType | 'all'>(
+    'all'
+  )
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [transports, setTransports] = useState<Transport[]>()
+  const [activeTab, setActiveTab] = useState<number>(0)
+
+  const { t } = useTranslation()
 
   useEffect(() => {
     setIsLoading(true)
     const t = setTimeout(
       () =>
-        getTransportsList()
+        getTransportsList(selected)
           .then(setTransports)
           .finally(() => setIsLoading(false)),
       300
     )
 
     return () => clearTimeout(t)
-  }, [])
-
-  const { t } = useTranslation()
+  }, [selected])
 
   const onTransportPress = (t: Transport) => {
     navigation.navigate('transport', {
@@ -74,9 +90,27 @@ export const HomeScreen: FC<Props> = ({ navigation }) => {
 
   if (isLoading) return <Loading />
 
+  if (!transports) return null
+
   return (
     <SafeAreaView>
-      <Tabs items={tabsContent} />
+      <Picker
+        placeholder='select'
+        selectedValue={selected}
+        onValueChange={itemValue => setSelected(itemValue)}
+      >
+        {types.map(tr => (
+          <Picker.Item
+            label={tr === 'all' ? t('words.all')! : tr}
+            value={tr}
+          />
+        ))}
+      </Picker>
+      <Tabs
+        defaultActive={activeTab}
+        onChange={setActiveTab}
+        items={tabsContent}
+      />
     </SafeAreaView>
   )
 }
